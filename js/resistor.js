@@ -3,68 +3,116 @@
  *  Simple application to calculate
  *  the value of a resistor.
  */
-
 (function() {
+
+  function Resistor(numDigits) {
+    var resistor = this;
+
+    resistor.numDigits = numDigits;
+
+    resistor.draw = function(paper, x, y, width, height) {
+      resistor.container = paper.rect(x, y, width, height);
+      resistor.container.attr({ 'stroke' : '#fff' });
+
+      resistor.wire = paper.rect(x, ((y - 4) * 1.5), width, 4);
+      resistor.wire.attr({ 'stroke' : '#000', 'stroke-width' : '2px' });
+
+      resistor.body = paper.rect(x + width/3, y, width/3, height)
+      resistor.body.attr({ 'fill' : '#fff', 'stroke' : '#000', 'stroke-width' : '2px' })
+
+      resistor.digit1 = new Digit(1, resistor);
+      resistor.digit1.draw(paper);
+
+      resistor.digit2 = new Digit(2, resistor);
+      resistor.digit2.draw(paper);
+
+      resistor.multiplier = new DigitMultiplier(resistor);
+      resistor.multiplier.draw(paper);
+
+      resistor.tolerance = new DigitTolerance(resistor);
+      resistor.tolerance.draw(paper);
+    };
+
+    return resistor;
+  };
+
+  function Digit(number, resistor) {
+    var digit = this;
+
+    digit.number   = number
+    digit.resistor = resistor
+
+    digit.x = resistor.body.attr('x') + ((resistor.body.attr('width')/10) * number);
+    digit.y = resistor.body.attr('y');
+
+    digit.width = resistor.body.attr('width') / 20;
+    digit.height = resistor.body.attr('height');
+
+    digit.draw = function(paper) {
+      digit.container = paper.rect(digit.x, digit.y, digit.width, digit.height);
+      digit.container.attr({ 'fill' : '#d2d2d2', 'stroke' : '#000', 'stroke-width' : '2px' });
+    }
+
+    return digit;
+  }
+
+  function DigitMultiplier(resistor) {
+    return new Digit(3, resistor);
+  }
+
+  function DigitTolerance(resistor) {
+    return new Digit(8.5, resistor);
+  }
+
+  function DigitSelect(digit) {
+    var digitSelect = this;
+    digitSelect.digit = digit;
+
+    digitSelect.labelText = function() {
+      switch(digitSelect.digit)
+      {
+        case 1:
+          return '1st Digit'
+        case 2:
+          return '2nd Digit'
+        case 3:
+          return '3rd Digit'
+      }
+    };
+
+    digitSelect.draw = function(paper, x, y, width, height) {
+      digitSelect.container = paper.rect(x, y, width, height);
+      digitSelect.container.attr({ 'stroke' : '#fff' });
+
+      digitSelect.label = paper.rect(x, y, width, height/11);
+      digitSelect.label.attr({ 'stroke-width' : '2px' });
+
+      digitSelect.labelText = paper.text(x + 48, y + 18, digitSelect.labelText());
+      digitSelect.labelText.attr({ 'font-size' : '16px' });
+
+      for(var i = 0; i < 10; i++) {
+        digitSelect['button' + i] = paper.rect(x, y + 10 + (height/11 * (i + 1)), width, height/11);
+        digitSelect['button' + i].attr({ 'r' : '5px' });
+      }
+    };
+
+    return digitSelect;
+  }
+
+
+
   var paper = Raphael("paper", 700, 800);
 
-  var digit1, digit1Label;
-  var digit2, digit2Label;
-  var digit3, digit3Label;
-  var multiplier, multiplierLabel;
-  var tolerance, toleranceLabel;
+  var fourBandResistor = new Resistor(4)
+  fourBandResistor.draw(paper, 50, 50, 600, 40);
 
-  // Draw the resistor wire
-  paper.rect(50, 50, 600, 4)
-       .attr({
-           'fill'         : '#fff'
-         , 'stroke'       : '#000'
-         , 'stroke-width' : '2px'
-       });
+  var digitSelect = DigitSelect(1);
+  digitSelect.draw(paper, 50, 170, 100, 400);
 
-  // Draw the resistor container
-  paper.rect(275, 31, 150, 40)
-       .attr({
-           'fill'         : '#fff'
-         , 'stroke'       : '#000'
-         , 'stroke-width' : '2px'
-       });
+  var digitSelect2 = DigitSelect(2);
+  digitSelect2.draw(paper, 170, 170, 100, 400);
 
-  // Draw the resistor's first digit
-  digit1 = paper.rect(290, 31, 10, 40);
-  digit1.attr({ 'fill' : '#000' });
-
-  digit1Label = paper.rect(50, 120, 100, 40);
-  digit1Label.attr({ 'fill' : '#fff', 'stroke' : '#000' });
-  paper.text(100, 141, "1st Digit").attr({ 'font-size' : '16px' });
-
-  // Draw the resistor's second digit
-  digit2 = paper.rect(310, 31, 10, 40);
-  digit2.attr({ 'fill' : '#000' });
-
-  digit2Label = paper.rect(175, 120, 100, 40);
-  digit2Label.attr({ 'fill' : '#fff', 'stroke' : '#000' });
-  paper.text(220, 141, "2nd Digit").attr({ 'font-size' : '16px' });
-
-  // Uncomment to add support for 3rd digit
-  // Digit3Label = paper.rect(300, 120, 100, 40);
-  // Digit3Label.attr({ 'fill' : '#fff', 'stroke' : '#000' });
-  // Paper.text(220, 141, "2nd Digit").attr({ 'font-size' : '16px' });
-
-  // Draw the resistor's multiplier
-  multiplier = paper.rect(330, 31, 10, 40);
-  multiplier.attr({ 'fill' : '#000' });
-
-  multiplierLabel = paper.rect(425, 120, 100, 40);
-  multiplierLabel.attr({ 'fill' : '#fff', 'stroke' : '#000' });
-  paper.text(475, 141, "Multipler").attr({ 'font-size' : '16px' });
-
-  // Draw the resistor's tolerance
-  tolerance = paper.rect(400, 31, 10, 40);
-  tolerance.attr({ 'fill' : '#000' });
-
-  toleranceLabel = paper.rect(550, 120, 100, 40);
-  toleranceLabel.attr({ 'fill' : '#fff', 'stroke' : '#000' });
-  paper.text(600, 141, "Tolerance").attr({ 'font-size' : '16px' });
-
+  var digitSelect3 = DigitSelect(3);
+  digitSelect3.draw(paper, 290, 170, 100, 400);
 
 })();
