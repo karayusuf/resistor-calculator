@@ -91,8 +91,14 @@
       digitSelect.labelText.attr({ 'font-size' : '16px' });
 
       for(var i = 0; i < 10; i++) {
-        digitSelect['button' + i] = paper.rect(x, y + 10 + (height/11 * (i + 1)), width, height/11);
-        digitSelect['button' + i].attr({ 'r' : '5px' });
+        var button = digitSelect['button' + i];
+        var buttonY = y + 10 + (height/11 * (i + 1))
+
+        button = paper.rect(x, buttonY, width, height/11);
+        button.attr({ 'r' : '5px' });
+
+        var label = paper.text(x + button.attr('width')/2, buttonY + button.attr('height')/2, i)
+        label.attr({ 'font-size' : '16px' });
       }
     };
 
