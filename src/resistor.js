@@ -12,7 +12,11 @@ function Resistor() {
   };
 
   resistor.value = function() {
-    return 0;
+    var x = ""
+          + this.firstBandValue
+          + this.secondBandValue;
+
+    return parseInt(x) * this.multiplierValue;
   };
 
   return resistor;
