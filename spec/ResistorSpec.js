@@ -6,7 +6,7 @@ describe("A Resistor", function() {
   });
 
   it("has a default value of 0", function() {
-    expect(resistor.value()).toEqual(0);
+    expect(resistor.value).toEqual(0);
   });
 
 });
