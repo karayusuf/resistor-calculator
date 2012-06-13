@@ -2,7 +2,7 @@ describe("A Four Band Resistor", function() {
   var resistor;
 
   beforeEach(function() {
-    resistor = new Resistor(4);
+    resistor = new Resistor();
   });
 
   describe("Initialize", function() {
@@ -19,13 +19,17 @@ describe("A Four Band Resistor", function() {
       expect(resistor.multiplierValue).toEqual(1);
     });
 
-    it("sets the toleranceValue to 5", function() {
-      expect(resistor.toleranceValue).toEqual(5);
+    it("sets the toleranceValue to 0.05", function() {
+      expect(resistor.toleranceValue).toEqual(0.05);
     });
 
-    it("sets the value to 0", function() {
-      expect(resistor.value).toEqual(0);
+    it("has a value of 0", function() {
+      expect(resistor.value()).toEqual(0);
     });
+
+  });
+
+  describe("", function() {
 
   });
 
