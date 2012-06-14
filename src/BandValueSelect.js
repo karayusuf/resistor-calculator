@@ -6,9 +6,8 @@ function BandValueSelect(band) {
     var value = value;
     var svgElement;
 
-    this.draw = function(canvas) {
+    this.draw = function(canvas, x) {
       var y = 125 + (30 * value);
-      var x = 50 + (100 * (band.position() - 1) + (20 * (band.position() - 1)));
       svgElement = canvas.rect(x, y, 100, 30);
       svgElement.attr({ 'fill': band.colorForValue(value) });
       svgElement.click(function() { band.setValue(value); });
@@ -17,10 +16,10 @@ function BandValueSelect(band) {
     return this;
   };
 
-  this.draw = function(canvas) {
+  this.draw = function(canvas, x) {
     for (var i = 0; i < values.length; i++) {
       var button = new Button(i);
-      button.draw(canvas);
+      button.draw(canvas, x);
     };
   };
 
