@@ -32,6 +32,10 @@ function Band(position) {
     return colorMap[value];
   };
 
+  this.colorForValue = function(value) {
+    return colorMap[value];
+  };
+
   return this;
 };
 

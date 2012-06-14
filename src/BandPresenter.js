@@ -18,6 +18,10 @@ function BandPresenter(canvas, band) {
     return band.value();
   };
 
+  this.colorForValue = function(value) {
+    return band.colorForValue(value);
+  };
+
   this.updateColor = function() {
     this.svgElement.attr({ 'fill' : band.color() });
   };
