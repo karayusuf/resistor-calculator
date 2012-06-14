@@ -12,5 +12,15 @@ function BandPresenter(canvas, band) {
     });
   };
 
+  this.setValue = function(value) {
+    band.setValue(value);
+    this.updateColor();
+    return band.value();
+  };
+
+  this.updateColor = function() {
+    this.svgElement.attr({ 'fill' : band.color() });
+  };
+
   return this;
 };
