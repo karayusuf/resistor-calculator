@@ -4,27 +4,44 @@
  *  the value of a resistor.
  */
 function Resistor() {
-  var resistor = {
-    'firstBandValue'  : 0
-  , 'secondBandValue' : 0
-  , 'multiplierValue' : 1
-  , 'toleranceValue'  : 0.05
+
+  var bands = {
+    'firstBand'      : new Band(1)
+  , 'secondBand'     : new Band(2)
+  , 'multiplierBand' : new MultiplierBand(3)
+  , 'toleranceBand'  : new ToleranceBand(4)
   };
+
+  var resistor = {
+    'firstBandValue' : function() {
+      return bands.firstBand.value();
+    }
+  , 'secondBandValue' : function() {
+      return bands.secondBand.value()
+    }
+  , 'multiplierValue' : function() {
+      return bands.multiplierBand.value()
+    }
+  , 'toleranceValue' : function() {
+      return bands.toleranceBand.value()
+    }
+  };
+
 
   resistor.setBands = function(firstBandValue, secondBandValue,
                                multiplierValue, toleranceValue) {
-    this.firstBandValue = firstBandValue;
-    this.secondBandValue = secondBandValue;
-    this.multiplierValue = multiplierValue;
-    this.toleranceValue = toleranceValue;
+    bands.firstBand.setValue(firstBandValue);
+    bands.secondBand.setValue(secondBandValue);
+    bands.multiplierBand.setValue(multiplierValue);
+    bands.toleranceBand.setValue(toleranceValue);
   };
 
   resistor.value = function() {
     var x = ""
-          + this.firstBandValue
-          + this.secondBandValue;
+          + this.firstBandValue()
+          + this.secondBandValue();
 
-    return parseInt(x) * this.multiplierValue;
+    return parseInt(x) * this.multiplierValue();
   };
 
   return resistor;

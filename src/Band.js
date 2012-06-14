@@ -17,3 +17,17 @@ function Band(position) {
 
   return this;
 };
+
+function MultiplierBand(position) {
+  var band = new Band(position)
+  band.setValue(1);
+
+  return band;
+};
+
+function ToleranceBand(position) {
+  var band = new Band(position);
+  band.setValue(0.05);
+
+  return band;
+};
