@@ -8,7 +8,8 @@ function ResistorPresenter(canvas) {
     wire.attr({
       'fill'         : '#fff'
     , 'stroke'       : '#000'
-    , 'stroke-width' : '2' });
+    , 'stroke-width' : '2'
+    });
     return wire;
   };
 
@@ -22,24 +23,21 @@ function ResistorPresenter(canvas) {
     return body;
   };
 
-  function drawBand(number) {
-    var x = 250 + (10 * (number + number));
-    var band = canvas.rect(x, 22, 10, 58);
-    band.attr({
-      'fill'         : '#d2d2d2'
-    , 'stroke'       : '#000'
-    , 'stroke-width' : '2'
-    });
-    return band;
-  };
-
   presenter.draw = function() {
     presenter.wire = drawWire();
     presenter.body = drawBody();
-    presenter.firstBand = drawBand(1);
-    presenter.secondBand = drawBand(2);
-    presenter.multiplierBand = drawBand(4);
-    presenter.toleranceBand = drawBand(8);
+
+    presenter.firstBand = new BandPresenter(canvas, resistor.firstBand());
+    presenter.firstBand.draw();
+
+    presenter.secondBand = new BandPresenter(canvas, resistor.secondBand());
+    presenter.secondBand.draw();
+
+    presenter.multiplierBand = new BandPresenter(canvas, resistor.multiplierBand());
+    presenter.multiplierBand.draw();
+
+    presenter.toleranceBand = new BandPresenter(canvas, resistor.toleranceBand());
+    presenter.toleranceBand.draw();
   };
 
   return presenter;

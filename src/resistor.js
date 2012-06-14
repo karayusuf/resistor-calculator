@@ -8,12 +8,24 @@ function Resistor() {
   var bands = {
     'firstBand'      : new Band(1)
   , 'secondBand'     : new Band(2)
-  , 'multiplierBand' : new MultiplierBand(3)
-  , 'toleranceBand'  : new ToleranceBand(4)
+  , 'multiplierBand' : new MultiplierBand(4)
+  , 'toleranceBand'  : new ToleranceBand(8)
   };
 
   var resistor = {
-    'firstBandValue' : function() {
+    'firstBand' : function() {
+      return bands.firstBand;
+    }
+  , 'secondBand' : function() {
+      return bands.secondBand;
+    }
+  , 'multiplierBand' : function() {
+      return bands.multiplierBand;
+    }
+  , 'toleranceBand' : function() {
+      return bands.toleranceBand;
+    }
+  , 'firstBandValue' : function() {
       return bands.firstBand.value();
     }
   , 'secondBandValue' : function() {
