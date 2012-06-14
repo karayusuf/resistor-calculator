@@ -3,9 +3,11 @@ function ResistorPresenter(canvas) {
   var resistor = new Resistor();
   var presenter = {};
 
-  function drawWire(x, y, width, height) {
-    var height = height / 25;
-    var wire = canvas.rect(x, y, width, height);
+  function drawWire(origX, origY, origWidth, origHeight) {
+    var height = origHeight / 25;
+    var y = ( origY + origHeight + height ) / 2;
+
+    var wire = canvas.rect(origX, y, origWidth, height);
     wire.attr({ 'stroke' : '#000', 'stroke-width' : '2' });
     return wire;
   };
