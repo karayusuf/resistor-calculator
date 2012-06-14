@@ -3,17 +3,25 @@ function ResistorPresenter(canvas) {
   var resistor = new Resistor();
   var presenter = {};
 
-  function drawWire(origX, origY, origWidth, origHeight) {
-    var height = origHeight / 25;
-    var y = ( origY + origHeight + height ) / 2;
-
-    var wire = canvas.rect(origX, y, origWidth, height);
+  function drawWire() {
+    var wire = canvas.rect(50, 50, 600, 4);
     wire.attr({ 'stroke' : '#000', 'stroke-width' : '2' });
     return wire;
   };
 
-  presenter.draw = function(x, y, width, height) {
-    presenter.wire = drawWire(x, y, width, height);
+  function drawBody() {
+    var body = canvas.rect(252, 22, 200, 58);
+    body.attr({
+      'fill'         : '#fff'
+    , 'stroke'       : '#000'
+    , 'stroke-width' : '2'
+    });
+    return body;
+  };
+
+  presenter.draw = function() {
+    presenter.wire = drawWire();
+    presenter.body = drawBody();
   };
 
   return presenter;
