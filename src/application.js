@@ -8,4 +8,7 @@
   var firstBandSelect = new BandValueSelect(resistor.firstBand);
   firstBandSelect.draw(canvas);
 
+  var secondBandSelect = new BandValueSelect(resistor.secondBand);
+  secondBandSelect.draw(canvas);
+
 })();

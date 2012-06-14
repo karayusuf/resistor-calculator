@@ -8,7 +8,8 @@ function BandValueSelect(band) {
 
     this.draw = function(canvas) {
       var y = 125 + (30 * value);
-      svgElement = canvas.rect(50, y, 100, 30);
+      var x = 50 + (100 * (band.position() - 1) + (20 * (band.position() - 1)));
+      svgElement = canvas.rect(x, y, 100, 30);
       svgElement.attr({ 'fill': band.colorForValue(value) });
       svgElement.click(function() { band.setValue(value); });
     };

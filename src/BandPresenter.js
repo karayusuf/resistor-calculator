@@ -12,6 +12,10 @@ function BandPresenter(canvas, band) {
     });
   };
 
+  this.position = function() {
+    return band.position();
+  };
+
   this.setValue = function(value) {
     band.setValue(value);
     this.updateColor();
