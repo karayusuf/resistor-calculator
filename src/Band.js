@@ -2,6 +2,19 @@ function Band(position) {
   var value = 0;
   var position = position;
 
+  var colorMap = [
+    'black'
+  , 'brown'
+  , 'red'
+  , 'orange'
+  , 'yellow'
+  , 'green'
+  , 'blue'
+  , 'violet'
+  , 'grey'
+  , 'white'
+  ]
+
   this.value = function() {
     return value;
   };
@@ -13,6 +26,10 @@ function Band(position) {
 
   this.position = function() {
     return position;
+  };
+
+  this.color = function() {
+    return colorMap[value];
   };
 
   return this;
