@@ -1,5 +1,5 @@
-function MultiplierBand() {
-  var band = new Band(4);
+function MultiplierBand(resistor) {
+  var band = new Band(resistor, 4);
 
   band.setColor('black');
   band.colorValues = {

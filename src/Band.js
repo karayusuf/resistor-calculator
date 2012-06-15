@@ -1,4 +1,5 @@
-function Band(position) {
+function Band(resistor, position) {
+  var resisitor = resistor;
   var position = position;
   var color = 'black';
 
@@ -14,6 +15,10 @@ function Band(position) {
   , 'grey'   : 8
   , 'white'  : 9
   }
+
+  this.resistor = function() {
+    return resistor;
+  };
 
   this.position = function() {
     return position;

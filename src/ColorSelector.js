@@ -2,6 +2,9 @@ function ColorSelector(band, startX, startY) {
   var svg = band.svg;
   var paper = svg.paper;
 
+  var resistor = band.resistor();
+  console.log(resistor);
+
   var height = 30;
   var width = 100;
 
@@ -11,6 +14,13 @@ function ColorSelector(band, startX, startY) {
     function changeColor() {
       band.setColor(color);
       svg.attr({ 'fill' : band.color() });
+      updateResistorValue();
+    };
+
+    function updateResistorValue() {
+      resistor.output.attr({
+        'text' : resistor.value()
+      });
     };
 
     this.draw = function(offset) {

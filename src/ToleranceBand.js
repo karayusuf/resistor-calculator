@@ -1,5 +1,5 @@
-function ToleranceBand() {
-  var band = new Band(5);
+function ToleranceBand(resistor) {
+  var band = new Band(resistor, 5);
 
   band.setColor('gold');
   band.colorValues = {

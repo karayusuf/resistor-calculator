@@ -1,13 +1,14 @@
 describe("A Band", function() {
+  var resistor = new Resistor();
 
   describe("Initialize", function() {
     it("Sets the default value of the band to 0", function() {
-      var band = new Band(1);
+      var band = new Band(resistor, 1);
       expect(band.value()).toEqual(0);
     });
 
     it("Sets the position of the band using the paramter", function() {
-      var band = new Band(2);
+      var band = new Band(resistor, 2);
       expect(band.position()).toEqual(2);
     });
   });
@@ -16,7 +17,7 @@ describe("A Band", function() {
     var band;
 
     beforeEach(function() {
-      band = new Band(1);
+      band = new Band(resistor, 1);
     });
 
     it("is 0 if the Band is black", function() {
