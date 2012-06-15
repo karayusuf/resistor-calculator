@@ -28,5 +28,9 @@ function Band(position) {
     return color;
   };
 
+  this.color = function() {
+    return color;
+  };
+
   return this;
 };
