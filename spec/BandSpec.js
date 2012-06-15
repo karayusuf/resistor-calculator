@@ -12,69 +12,61 @@ describe("A Band", function() {
     });
   });
 
-  describe("setValue", function() {
-    it("Sets the value of the band", function() {
-      var band = new Band(1);
-      band.setValue(8);
-      expect(band.value()).toEqual(8);
-    });
-  });
-
-  describe("color", function() {
+  describe("value()", function() {
     var band;
 
     beforeEach(function() {
       band = new Band(1);
     });
 
-    it("is black if the Band has a value of 0", function() {
-      band.setValue(0);
-      expect(band.color()).toEqual('black');
+    it("is 0 if the Band is black", function() {
+      band.setColor('black');
+      expect(band.value()).toEqual(0);
     });
 
-    it("is brown if the Band has a value of 1", function() {
-      band.setValue(1);
-      expect(band.color()).toEqual('brown');
+    it("is 1 if the Band is brown", function() {
+      band.setColor('brown');
+      expect(band.value()).toEqual(1);
     });
 
-    it("is red if the Band has a value of 2", function() {
-      band.setValue(2);
-      expect(band.color()).toEqual('red');
+    it("is 2 if the Band is red", function() {
+      band.setColor('red');
+      expect(band.value()).toEqual(2);
     });
 
-    it("is orange if the Band has a value of 3", function() {
-      band.setValue(3);
-      expect(band.color()).toEqual('orange');
+    it("is 3 if the Band is orange", function() {
+      band.setColor('orange');
+      expect(band.value()).toEqual(3);
     });
 
-    it("is yellow if the Band has a value of 4", function() {
-      band.setValue(4);
-      expect(band.color()).toEqual('yellow');
+    it("is 4 if the Band is yellow", function() {
+      band.setColor('yellow');
+      expect(band.value()).toEqual(4);
     });
 
-    it("is green if the Band has a value of 5", function() {
-      band.setValue(5);
-      expect(band.color()).toEqual('green');
+    it("is 5 if the Band is green", function() {
+      band.setColor('green');
+      expect(band.value()).toEqual(5);
     });
 
-    it("is blue if the Band has a value of 6", function() {
-      band.setValue(6);
-      expect(band.color()).toEqual('blue');
+    it("is 6 if the Band blue", function() {
+      band.setColor('blue');
+      expect(band.value()).toEqual(6);
     });
 
-    it("is violet if the Band has a value of 7", function() {
-      band.setValue(7);
-      expect(band.color()).toEqual('violet');
+    it("is 7 if the Band violet", function() {
+      band.setColor('violet');
+      expect(band.value()).toEqual(7);
     });
 
-    it("is grey if the Band has a value of 8", function() {
-      band.setValue(8);
-      expect(band.color()).toEqual('grey');
+    it("is 8 if the Band grey", function() {
+      band.setColor('grey');
+      expect(band.value()).toEqual(8);
     });
 
-    it("is white if the Band has a value of 9", function() {
-      band.setValue(9);
-      expect(band.color()).toEqual('white');
+    it("is 9 if the Band white", function() {
+      band.setColor('white');
+      expect(band.value()).toEqual(9);
     });
   });
 

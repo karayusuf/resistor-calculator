@@ -1,47 +1,31 @@
 function Band(position) {
-  var value = 0;
   var position = position;
+  var color = 'black';
 
-  var colorMap = [
-    'black'
-  , 'brown'
-  , 'red'
-  , 'orange'
-  , 'yellow'
-  , 'green'
-  , 'blue'
-  , 'violet'
-  , 'grey'
-  , 'white'
-  ]
-
-  this.value = function() {
-    return value;
-  };
-
-  this.setValue = function(newValue) {
-    value = newValue;
-    return value;
-  };
+  var colorValues = {
+    'black'  : 0
+  , 'brown'  : 1
+  , 'red'    : 2
+  , 'orange' : 3
+  , 'yellow' : 4
+  , 'green'  : 5
+  , 'blue'   : 6
+  , 'violet' : 7
+  , 'grey'   : 8
+  , 'white'  : 9
+  }
 
   this.position = function() {
     return position;
   };
 
-  this.color = function() {
-    return colorMap[value];
+  this.value = function() {
+    return colorValues[color];;
   };
 
-  this.colorForValue = function(value) {
-    return colorMap[value];
+  this.setColor = function(newColor) {
+    color = newColor;
+    return color;
   };
 
-  return this;
-};
-
-function ToleranceBand(position) {
-  var band = new Band(position);
-  band.setValue(0.05);
-
-  return band;
 };
