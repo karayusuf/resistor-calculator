@@ -22,6 +22,10 @@ function BandPresenter(canvas, band) {
     return band.value();
   };
 
+  this.values = function() {
+    return band.values();
+  };
+
   this.colorForValue = function(value) {
     return band.colorForValue(value);
   };

@@ -11,7 +11,7 @@
   var secondBandSelect = new BandValueSelect(resistor.secondBand);
   secondBandSelect.draw(canvas, 170);
 
-  var multiplierBandSelect = new BandValueSelect(resistor.multiplierBand);
+  var multiplierBandSelect = new MultiplierBandSelect(resistor.multiplierBand);
   multiplierBandSelect.draw(canvas, 290);
 
   var toleranceBandSelect = new BandValueSelect(resistor.toleranceBand);

@@ -1,8 +1,8 @@
 function MultiplierBand() {
-  var band = new Band(4)
+  var band = new Band(4);
   band.setValue(1);
 
-  var valueColors = {
+  var values = {
     '1'       : 'black'
   , '10'      : 'brown'
   , '100'     : 'red'
@@ -13,14 +13,19 @@ function MultiplierBand() {
   , null      : null
   , '0.1'     : 'gold'
   , '0.01'    : 'silver'
-  }
+  };
 
-  band.valueColors = function() {
-    return valueColors;
+  band.values = function() {
+    return values;
   };
 
   band.color = function() {
-    return valueColors[band.value().toString()];
+    return band.colorForValue(band.value());
+  };
+
+  band.colorForValue = function(value) {
+    console.log(value);
+    return values[value.toString()];
   };
 
   return band;
