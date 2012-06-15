@@ -11,50 +11,50 @@ describe("A Multiplier Band", function() {
     });
   });
 
-  describe("color()", function() {
-    it("is black when it has a value of 1", function() {
-      band.setValue(1);
-      expect(band.color()).toEqual('black');
+  describe("value()", function() {
+    it("is 1 when it is black", function() {
+      band.setColor('black');
+      expect(band.value()).toEqual(1);
     });
 
-    it("is brown when it has a value of 10", function() {
-      band.setValue(10);
-      expect(band.color()).toEqual('brown');
+    it("is 10 when it is brown", function() {
+      band.setColor('brown');
+      expect(band.value()).toEqual(10);
     });
 
-    it("is red when it has a value of 100", function() {
-      band.setValue(100);
-      expect(band.color()).toEqual('red');
+    it("is 100 when it is red", function() {
+      band.setColor('red');
+      expect(band.value()).toEqual(100);
     });
 
-    it("is orange when it has a value of 1000", function() {
-      band.setValue(1000);
-      expect(band.color()).toEqual('orange');
+    it("is 1000 when it is orange", function() {
+      band.setColor('orange');
+      expect(band.value()).toEqual(1000);
     });
 
-    it("is yellow when it has a value of 10000", function() {
-      band.setValue(10000);
-      expect(band.color()).toEqual('yellow');
+    it("is 10000 when it is yellow", function() {
+      band.setColor('yellow');
+      expect(band.value()).toEqual(10000);
     });
 
-    it("is green when it has a value of 100000", function() {
-      band.setValue(100000);
-      expect(band.color()).toEqual('green');
+    it("is 100000 when it is green", function() {
+      band.setColor('green');
+      expect(band.value()).toEqual(100000);
     });
 
-    it("is blue when it has a value of 1000000", function() {
-      band.setValue(1000000);
-      expect(band.color()).toEqual('blue');
+    it("is 1000000 when it is blue", function() {
+      band.setColor('blue');
+      expect(band.value()).toEqual(1000000);
     });
 
-    it("is gold when it has a value of 0.1", function() {
-      band.setValue(0.1);
-      expect(band.color()).toEqual('gold');
+    it("is gold when it is 0.1", function() {
+      band.setColor('gold');
+      expect(band.value()).toEqual(0.1);
     });
 
-    it("is silver when it has a value of 0.01", function() {
-      band.setValue(0.01);
-      expect(band.color()).toEqual('silver');
+    it("is silver when it is 0.01", function() {
+      band.setColor('silver');
+      expect(band.value()).toEqual(0.01);
     });
 
   });

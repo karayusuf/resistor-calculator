@@ -2,7 +2,7 @@ function Band(position) {
   var position = position;
   var color = 'black';
 
-  var colorValues = {
+  this.colorValues = {
     'black'  : 0
   , 'brown'  : 1
   , 'red'    : 2
@@ -20,7 +20,7 @@ function Band(position) {
   };
 
   this.value = function() {
-    return colorValues[color];;
+    return this.colorValues[color];
   };
 
   this.setColor = function(newColor) {
@@ -28,4 +28,5 @@ function Band(position) {
     return color;
   };
 
+  return this;
 };
