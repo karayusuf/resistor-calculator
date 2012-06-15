@@ -26,6 +26,22 @@
   , 'text-anchor' : 'end'
   });
 
+  resistor.toleranceLabel = paper.set();
+  resistor.toleranceLabel.push(
+    paper.text(595, 138, "+")
+  , paper.text(595, 136, "_")
+  );
+  resistor.toleranceLabel.attr({
+    'font-size' : '18px'
+  , 'text-anchor' : 'end'
+  });
+
+  resistor.toleranceOutput = paper.text(650, 138, resistor.tolerance());
+  resistor.toleranceOutput.attr({
+    'font-size' : '18px'
+  , 'text-anchor' : 'end'
+  });
+
   resistor.firstBand().svg = paper.rect(270, 22, 18, 58);
   resistor.firstBand().svg.attr({
     'fill' : resistor.firstBand().color()

@@ -15,11 +15,18 @@ function ColorSelector(band, startX, startY) {
       band.setColor(color);
       svg.attr({ 'fill' : band.color() });
       updateResistorValue();
+      updateResistorTolerance();
     };
 
     function updateResistorValue() {
       resistor.output.attr({
         'text' : resistor.value()
+      });
+    };
+
+    function updateResistorTolerance() {
+      resistor.toleranceOutput.attr({
+        'text' : resistor.tolerance()
       });
     };
 

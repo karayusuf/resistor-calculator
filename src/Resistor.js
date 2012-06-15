@@ -33,5 +33,9 @@ function Resistor() {
     return parseInt(x) * multiplierBand.value();
   };
 
+  this.tolerance = function() {
+    return (toleranceBand.value() * 100) + " %"
+  };
+
   return this;
 }
