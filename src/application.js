@@ -14,6 +14,18 @@
   , 'stroke-width' : '2'
   });
 
+  resistor.outputLabel = paper.text(650, 114, "Ohms");
+  resistor.outputLabel.attr({
+    'font-size' : '18px'
+  , 'text-anchor' : 'end'
+  });
+
+  resistor.output = paper.text(595, 114, resistor.value());
+  resistor.output.attr({
+    'font-size' : '18px'
+  , 'text-anchor' : 'end'
+  });
+
   resistor.firstBand().svg = paper.rect(270, 22, 18, 58);
   resistor.firstBand().svg.attr({
     'fill' : resistor.firstBand().color()
