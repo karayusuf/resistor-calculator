@@ -34,4 +34,9 @@
     'fill' : resistor.toleranceBand().color()
   });
 
+  new ColorSelector(resistor.firstBand(), 50, 100);
+  new ColorSelector(resistor.secondBand(), 170, 100);
+  new ColorSelector(resistor.multiplierBand(), 290, 100);
+  new ColorSelector(resistor.toleranceBand(), 410, 100);
+
 })();
