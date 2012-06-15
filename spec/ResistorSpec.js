@@ -31,12 +31,12 @@ describe("A Four Band Resistor", function() {
       expect(resistor.value()).toEqual(110)
     });
 
-    it("returns 1300000 when the color bands are brown, orange, and green",
+    it("returns '1.3 M' when the color bands are brown, orange, and green",
     function() {
       resistor.firstBand().setColor('brown');
       resistor.secondBand().setColor('orange');
       resistor.multiplierBand().setColor('green');
-      expect(resistor.value()).toEqual(1300000)
+      expect(resistor.value()).toEqual('1.3 M')
     });
 
   });

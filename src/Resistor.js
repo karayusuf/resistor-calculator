@@ -30,7 +30,14 @@ function Resistor() {
           + firstBand.value()
           + secondBand.value();
 
-    return parseInt(x) * multiplierBand.value();
+    var actualValue = parseInt(x) * multiplierBand.value();
+    if ((actualValue / 1000000) > 1) {
+      return actualValue / 1000000 + " M";
+    } else if ((actualValue / 1000) > 1) {
+      return actualValue / 1000 + " K";
+    } else {
+      return actualValue;
+    }
   };
 
   this.tolerance = function() {

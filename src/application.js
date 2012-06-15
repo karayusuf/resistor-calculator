@@ -14,13 +14,13 @@
   , 'stroke-width' : '2'
   });
 
-  resistor.outputLabel = paper.text(650, 114, "Ohms");
+  resistor.outputLabel = paper.text(650, 114, "ohms");
   resistor.outputLabel.attr({
     'font-size' : '18px'
   , 'text-anchor' : 'end'
   });
 
-  resistor.output = paper.text(595, 114, resistor.value());
+  resistor.output = paper.text(600, 114, resistor.value());
   resistor.output.attr({
     'font-size' : '18px'
   , 'text-anchor' : 'end'
