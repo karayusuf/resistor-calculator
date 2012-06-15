@@ -8,10 +8,16 @@ function ColorSelector(band, startX, startY) {
   function Button(color) {
     var color = color;
 
+    function changeColor() {
+      band.setColor(color);
+      svg.attr({ 'fill' : band.color() });
+    };
+
     this.draw = function(offset) {
       var y = startY + (offset * height);
       var ele = paper.rect(startX, y, width, height);
       ele.attr({ 'fill' : color });
+      ele.click(changeColor);
     };
 
     return this;
